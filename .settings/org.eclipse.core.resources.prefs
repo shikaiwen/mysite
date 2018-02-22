@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//firstsite/templates/firstsite/post.html=UTF-8
+encoding//greetplugin/migrations/0001_initial.py=utf-8
 encoding//mysite/urls.py=utf-8
+encoding/<project>=UTF-8

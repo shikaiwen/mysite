@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
-from cms.sitemaps import CMSSitemap
+# from cms.sitemaps import CMSSitemap
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
@@ -12,15 +12,18 @@ from django.views.static import serve
 
 admin.autodiscover()
 
+
 urlpatterns = [
-    url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': {'cmspages': CMSSitemap}}),
+#     url(r'^sitemap\.xml$', sitemap,
+#         {'sitemaps': {'cmspages': CMSSitemap}}),
 ]
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^greet/', include('greetplugin.urls')),
-    url(r'^', include('cms.urls')),
+    url(r'^firstsite/', include('firstsite.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
+#     url(r'^', include('cms.urls')),
 )
 
 # This is only needed when using runserver.

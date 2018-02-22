@@ -35,8 +35,6 @@ ALLOWED_HOSTS = []
 
 
 
-
-
 ROOT_URLCONF = 'mysite.urls'
 
 
@@ -45,15 +43,15 @@ ROOT_URLCONF = 'mysite.urls'
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'ja'
+# LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'Asia/Tokyo'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
+# TIME_ZONE = 'Asia/Tokyo'
+# 
+# USE_I18N = True
+# 
+# USE_L10N = True
+# 
+# USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
@@ -66,6 +64,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'static'),
+    os.path.join(BASE_DIR, 'firstsite', 'static'),
 )
 SITE_ID = 1
 
@@ -73,7 +72,9 @@ SITE_ID = 1
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'mysite', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'firstsite', 'templates'),
+                 os.path.join(BASE_DIR, 'greetplugin', 'templates'),
+                 os.path.join(BASE_DIR, 'mysite', 'templates')],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -86,7 +87,8 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.template.context_processors.static',
-                'cms.context_processors.cms_settings'
+                'firstsite.context_processor.share_vars',
+#                 'cms.context_processors.cms_settings'
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -98,8 +100,9 @@ TEMPLATES = [
 ]
 
 
+
 MIDDLEWARE = (
-    'cms.middleware.utils.ApphookReloadMiddleware',
+#     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -107,14 +110,14 @@ MIDDLEWARE = (
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cms.middleware.user.CurrentUserMiddleware',
-    'cms.middleware.page.CurrentPageMiddleware',
-    'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+#     'cms.middleware.user.CurrentUserMiddleware',
+#     'cms.middleware.page.CurrentPageMiddleware',
+#     'cms.middleware.toolbar.ToolbarMiddleware',
+#     'cms.middleware.language.LanguageCookieMiddleware'
 )
 
 INSTALLED_APPS = (
-    'djangocms_admin_style',
+#     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -123,59 +126,61 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
-    'cms',
-    'menus',
-    'sekizai',
-    'treebeard',
-    'djangocms_text_ckeditor',
-    'filer',
-    'easy_thumbnails',
-    'djangocms_column',
-    'djangocms_file',
-    'djangocms_link',
-    'djangocms_picture',
-    'djangocms_style',
-    'djangocms_snippet',
-    'djangocms_googlemap',
-    'djangocms_video',
-    'aldryn_bootstrap3',
+#     'cms',
+#     'menus',
+#     'sekizai',
+#     'treebeard',
+#     'djangocms_text_ckeditor',
+#     'filer',
+#     'easy_thumbnails',
+#     'djangocms_column',
+#     'djangocms_file',
+#     'djangocms_link',
+#     'djangocms_picture',
+#     'djangocms_style',
+#     'djangocms_snippet',
+#     'djangocms_googlemap',
+#     'djangocms_video',
+#     'aldryn_bootstrap3',
     'mysite',
-    "greetplugin"
+    "greetplugin",
+    "firstsite",
+#     "tinymce",
 )
 
-LANGUAGES = (
-    ## Customize this
-    ('ja', gettext('ja')),
-)
+# LANGUAGES = (
+#     ## Customize this
+#     ('ja', gettext('ja')),
+# )
 
-CMS_LANGUAGES = {
-    ## Customize this
-    1: [
-        {
-            'code': 'ja',
-            'name': gettext('ja'),
-            'redirect_on_fallback': True,
-            'public': True,
-            'hide_untranslated': False,
-        },
-    ],
-    'default': {
-        'redirect_on_fallback': True,
-        'public': True,
-        'hide_untranslated': False,
-    },
-}
-
-CMS_TEMPLATES = (
-    ## Customize this
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
-)
-
-CMS_PERMISSION = True
-
-CMS_PLACEHOLDER_CONF = {}
+# CMS_LANGUAGES = {
+#     ## Customize this
+#     1: [
+#         {
+#             'code': 'ja',
+#             'name': gettext('ja'),
+#             'redirect_on_fallback': True,
+#             'public': True,
+#             'hide_untranslated': False,
+#         },
+#     ],
+#     'default': {
+#         'redirect_on_fallback': True,
+#         'public': True,
+#         'hide_untranslated': False,
+#     },
+# }
+# 
+# CMS_TEMPLATES = (
+#     ## Customize this
+#     ('fullwidth.html', 'Fullwidth'),
+#     ('sidebar_left.html', 'Sidebar Left'),
+#     ('sidebar_right.html', 'Sidebar Right')
+# )
+# 
+# CMS_PERMISSION = True
+# 
+# CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
     'default': {
