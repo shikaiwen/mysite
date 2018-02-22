@@ -12,6 +12,9 @@ from .models import Post
 # https://stackoverflow.com/questions/12704539/how-to-present-data-from-django-cms-custom-plugin-in-template
 # 参考になる記事
 
+# bootstrap模板下载地址
+https://bootstrapmade.com/
+https://bootstrapmade.com/demo/MeFamily/
 # Create your views here.
 def index(request):
     template = loader.get_template("firstsite/index.html")

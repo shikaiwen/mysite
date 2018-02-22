@@ -22,7 +22,7 @@ urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^greet/', include('greetplugin.urls')),
     url(r'^firstsite/', include('firstsite.urls')),
-    url(r'^tinymce/', include('tinymce.urls')),
+    # url(r'^tinymce/', include('tinymce.urls')),
 #     url(r'^', include('cms.urls')),
 )
 
