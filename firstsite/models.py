@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from cms.constants import PAGE_USERNAME_MAX_LENGTH
 # from tinymce.models import  HTMLField
+from ckeditor.fields import RichTextField
 
 class HeaderLink(models.Model):
     
@@ -36,7 +37,9 @@ class HeaderLink(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     meta_description = models.TextField(max_length=160, null=True, blank=True)
-    content = models.TextField()
+#     content = models.TextField()
+    content = RichTextField()
+    
     featured_image = models.ImageField(upload_to='static/blog/uploads/%Y/%m/%d/', blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)

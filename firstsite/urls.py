@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^blog*', views.blog, name='blog'),
     url(r'^contact*', views.contact, name='contact'),
     url(r'^post/(\d+)$', views.post, name='post'),
+    url(r'^form*', views.formtest, name='formtest'),
     
 ]
