@@ -21,7 +21,7 @@ from firstsite.AddForm import AddForm
 
 
 # CKeditor安装和使用：https://pypi.python.org/pypi/django-ckeditor/5.4.0#usage
-
+# http://garmoncheg.blogspot.jp/2014/07/django-adding-custom-widget-to-django.html
 
 def index(request):
     template = loader.get_template("firstsite/index.html")
