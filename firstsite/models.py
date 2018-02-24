@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-from cms.constants import PAGE_USERNAME_MAX_LENGTH
+# from cms.constants import PAGE_USERNAME_MAX_LENGTH
 # from tinymce.models import  HTMLField
 from ckeditor.fields import RichTextField
 
