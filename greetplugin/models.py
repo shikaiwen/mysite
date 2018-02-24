@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-from cms.constants import PAGE_USERNAME_MAX_LENGTH
+# from cms.constants import PAGE_USERNAME_MAX_LENGTH
 # from cms.models.pluginmodel import CMSPlugin
 # import cms.models.fields
 # class Hello(CMSPlugin):
