@@ -37,7 +37,7 @@ def index(request):
 
 def post(request, postid):
     currlinkitem = HeaderLink.objects.filter(name="About").get()
-    post = Post.objects.get(pk=1)
+    post = Post.objects.get(pk=postid)
     context = {
         "currlinkitem":currlinkitem,
         "post":post
