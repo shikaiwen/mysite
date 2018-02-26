@@ -10,6 +10,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.static import serve
 from ckeditor import *
+
 admin.autodiscover()
 
 
@@ -22,13 +23,18 @@ urlpatterns += i18n_patterns(
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^greet/', include('greetplugin.urls')),
     url(r'^firstsite/', include('firstsite.urls')),
+    url(r'^mycareer/', include('mycareer.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'^tinymce/', include('tinymce.urls')),
 #     url(r'^', include('cms.urls')),
 )
 
 # This is only needed when using runserver.
 if settings.DEBUG:
+    print("2222222222222222222222222222")
     urlpatterns = [
-        url(r'^media/(?P<path>.*)$', serve,
-            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        url(r'^media/(?P<path>.*)$', 
+            serve,
+            {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}
+            ),
         ] + staticfiles_urlpatterns() + urlpatterns

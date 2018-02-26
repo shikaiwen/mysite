@@ -62,12 +62,23 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
 STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
-CKEDITOR_UPLOAD_PATH = "C:/Users/shikw/ENV/mysite/"
+# CKEDITOR_UPLOAD_PATH = "C:/Users/shikw/ENV/mysite/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': "100%",
+    },
+}
 
+ 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'mysite', 'static'),
     os.path.join(BASE_DIR, 'firstsite', 'static'),
+    os.path.join(BASE_DIR, 'mycareer', ''),
 )
+
 SITE_ID = 1
 
 
@@ -76,7 +87,10 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'firstsite', 'templates'),
                  os.path.join(BASE_DIR, 'greetplugin', 'templates'),
-                 os.path.join(BASE_DIR, 'mysite', 'templates')],
+                 os.path.join(BASE_DIR, 'mysite', 'templates'),
+                 os.path.join(BASE_DIR, 'mycareer', 'templates')
+                 
+                 ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -145,9 +159,11 @@ INSTALLED_APPS = (
 #     'djangocms_video',
 #     'aldryn_bootstrap3',
     'mysite',
-    "greetplugin",
+#     "greetplugin",
     "firstsite",
+    "mycareer",
     "ckeditor",
+    "ckeditor_uploader"
 #     "tinymce",
 )
 
