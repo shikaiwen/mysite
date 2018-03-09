@@ -1,4 +1,3 @@
-from django.db import models
 
 # Create your models here.
 from django.db import models
@@ -60,6 +59,7 @@ class Post(models.Model):
         ("2","mycareer"),
     ) 
     appcode = models.CharField(default="1", max_length=5,choices= APP_CHOICES, blank=True)
+    
 #     appcode 
     def __str__(self):
         namedict = {}
@@ -68,3 +68,9 @@ class Post(models.Model):
             namedict[field.attname] = getattr(self, field.attname)
         
         return 'Post: ' + str(namedict)
+    
+    def __unicode__(self):
+        return self.title;  
+    
+    
+    

@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 # Register your models here.
 
 from django.contrib import admin
@@ -9,10 +8,18 @@ from .forms import PostModelForm
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ("title" ,"meta_description","content",)
-    form = PostModelForm
-    
+#     form = PostModelForm
 
-admin.site.register(HeaderLink)
-admin.site.register(Post)
-# admin.site.register(Post, PostAdmin)
+class HeaderLinkAdmin(admin.ModelAdmin):
+#     Post.meta_description
+#     HeaderLink._meta
+    flist = [x.name for x in HeaderLink._meta.get_fields()]
+    flist.remove("content")
+    list_display = tuple(flist)
+#     list_display = [HeaderLink._meta.get_all_field_names()]
+#     list_display = ("id" ,"name","url","titletext","detailtext")
+
+admin.site.register(HeaderLink, HeaderLinkAdmin)
+# admin.site.register(Post)
+admin.site.register(Post, PostAdmin)
 

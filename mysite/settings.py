@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
+
+
+
+WSGI details information: https://www.python.org/dev/peps/pep-0333/#middleware-components-that-play-both-sides
 """
 
 import os
@@ -116,7 +120,7 @@ TEMPLATES = [
 ]
 
 
-
+# wiring my own middlerware :https://simpleisbetterthancomplex.com/tutorial/2016/07/18/how-to-create-a-custom-django-middleware.html
 MIDDLEWARE = (
 #     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

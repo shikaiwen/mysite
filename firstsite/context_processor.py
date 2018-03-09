@@ -9,5 +9,6 @@ def share_vars(request):
     modulename = __name__.split(".")[0]
     return {
         'linklist': linklist,
-        "modulename": modulename
+        "modulename": modulename,
+        "modulename2": "modulename2",
     }
