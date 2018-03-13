@@ -17,6 +17,8 @@ class HeaderLink(models.Model):
     show = models.BigIntegerField(blank=True,default=1)
     content = RichTextUploadingField(blank=True)
     
+    background_image = models.ImageField(upload_to='static/blog/uploads/header/%Y/%m/%d/', blank=True, null=True)
+    
     def __str__(self):
         strdata = ""
         namedict = {}

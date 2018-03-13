@@ -20,15 +20,38 @@
 {% endblock cntheader %}
 
 
+    
+    
 {% block maincontent%}
     <!-- Main Content -->
     <div class="container">
+    
+   
+   <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 35.692916, lng:139.849834},
+          zoom: 16
+        });
+        
+        
+        var marker = new google.maps.Marker({
+            position: {lat: 35.692916, lng:139.849834},
+            map: map,
+            title: 'I am here !'
+          });
+        
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Vwk4_Oy11sYAaO8Vme-CsEjljoVq_wI&callback=initMap" async defer></script>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
-                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
-                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
-                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <p>私について、何か知りたかったら、お気軽に連絡してください</p>
+                
+                <p>よく行く場所は、こちらです</p>
+                <div id="map" style="background:white;width:100%;height:400px;"></div>
                 <form name="sentMessage" id="contactForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">

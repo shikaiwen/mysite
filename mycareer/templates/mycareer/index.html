@@ -32,7 +32,7 @@
   <body id="page-top">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <a class="navbar-brand js-scroll-trigger" href="/">
         <span class="d-block d-lg-none">Start Bootstrap</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2 me-title-img" src="{% static 'me/me-title-img.jpg'%}" alt="">
@@ -52,7 +52,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0 mycareer_maincontiner">
 
 	{% for post in postlist %}
       <section class="resume-section p-3 p-lg-5 d-flex d-column" id="{{post.postcode}}">

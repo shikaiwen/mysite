@@ -3,3 +3,15 @@
 	height:200px;
 	border-radius: 50%;
 }
+
+
+/* mycareer module  */
+.mycareer_maincontiner iframe{
+	width: 281px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.mycareer_maincontiner{
+	
+}

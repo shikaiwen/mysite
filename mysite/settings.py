@@ -206,6 +206,17 @@ INSTALLED_APPS = (
 # 
 # CMS_PLACEHOLDER_CONF = {}
 
+
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'toolbar': 'full',
+#         "allowedContent":{
+#             "script": "true",
+#         }
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,

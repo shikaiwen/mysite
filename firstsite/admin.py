@@ -6,8 +6,25 @@ from .models import HeaderLink
 from .models import Post
 from .forms import PostModelForm
 
+
+def posttitle_upper(modeladmin, request, queryset):
+    for post in queryset:
+        post.title = post.title.upper()
+        post.save()
+posttitle_upper.short_description = "title uppercase "
+
+
+def posttitle_lower(modeladmin, request, queryset):
+    for post in queryset:
+        post.title = post.title.lower()
+        post.save()
+posttitle_lower.short_description = "title lowercase "
+
+
 class PostAdmin(admin.ModelAdmin):
     list_display = ("title" ,"meta_description","content",)
+    search_fields = ['title', 'meta_description',"content"]
+    actions = [posttitle_upper, posttitle_lower]
 #     form = PostModelForm
 
 class HeaderLinkAdmin(admin.ModelAdmin):
