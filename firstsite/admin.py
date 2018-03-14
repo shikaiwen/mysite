@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import HeaderLink
 from .models import Post
 from .forms import PostModelForm
-
+from .visibleblogfilter import *
 
 def posttitle_upper(modeladmin, request, queryset):
     for post in queryset:
@@ -22,8 +22,13 @@ posttitle_lower.short_description = "title lowercase "
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title" ,"meta_description","content",)
+    list_display = ("title" ,"meta_description","content","show")
     search_fields = ['title', 'meta_description',"content"]
+    
+#     list_filter = ("title","created_on")
+    list_filter = (visiableblogfilter,)
+    
+    
     actions = [posttitle_upper, posttitle_lower]
 #     form = PostModelForm
 
