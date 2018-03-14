@@ -60,7 +60,17 @@ class Post(models.Model):
         ("1","mainsite"),
         ("2","mycareer"),
     ) 
+    
     appcode = models.CharField(default="1", max_length=5,choices= APP_CHOICES, blank=True)
+    
+    SHOW_CHOICES = (
+        ("0","not show"),
+        ("1","show")
+        )
+    
+    show = models.CharField(default="1", max_length=5,choices= SHOW_CHOICES, blank=True) 
+    
+    
     
 #     appcode 
     def __str__(self):

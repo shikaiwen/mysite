@@ -28,7 +28,7 @@ from firstsite.AddForm import AddForm
 def index(request):
     template = loader.get_template("firstsite/index.html")
     currlinkitem = HeaderLink.objects.filter(name="home").get()
-    postlist = list(Post.objects.all().filter(appcode="1"))
+    postlist = list(Post.objects.all().filter(appcode="1").filter(show="1").order_by("-created_on"))
     context = {
         "currlinkitem":currlinkitem,
         "postlist":postlist
