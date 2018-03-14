@@ -25,6 +25,10 @@ from firstsite.AddForm import AddForm
 
 
 # グーグルのウェーブサイト翻訳　https://support.google.com/translate/answer/2534601?hl=en
+
+# add textfilter : https://medium.com/@hakibenita/how-to-add-a-text-filter-to-django-admin-5d1db93772d8
+# filter: https://github.com/modlinltd/django-advanced-filters
+
 def index(request):
     template = loader.get_template("firstsite/index.html")
     currlinkitem = HeaderLink.objects.filter(name="home").get()
