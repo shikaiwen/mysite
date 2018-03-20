@@ -26,7 +26,7 @@ urlpatterns += i18n_patterns(
     url(r'^$', firstsite.views.index,name="home"),
     url(r'^admin/', include(admin.site.urls)),  # NOQA
     url(r'^greet/', include('greetplugin.urls')),
-    url(r'^firstsite/', include('firstsite.urls')),
+    url(r'^firstsite/', include('firstsite.urls', namespace="firstsite") ),
     url(r'^mycareer/', include('mycareer.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     

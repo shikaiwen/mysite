@@ -6,6 +6,7 @@ Created on 2018年3月14日
 from django.contrib import admin
 
 class visiableblogfilter(admin.SimpleListFilter):
+    
     title = "公开状态"
     parameter_name = "is_show"
     
