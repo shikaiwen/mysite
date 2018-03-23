@@ -1,0 +1,121 @@
+<script type="text/javascript">
+var namelist = ["馬健-松戸","贾海燕_検見川浜","劉寧_西巣鴨","一创科技_日阿旺","一创横川","朱慶 足立","沈 偉 赤羽","李 学軍_稲毛海岸","宋佶媛 和田町","张中原 八柱","唐先登 足立","李国傑 東陽町","王亮亮 常盤平","范華鵬 東あずま","スンベ_南行徳","稲沢","陈伟峰 蕨","金磊 蕨","劉眉子","李诗琦","王斌一创","蘇兆慧_亀戸","管傑","孫成卓 品川シーサイド","覃（qin）俊峡","张世欣","李金子 足立","史建明 蕨","賈方 八柱","何歓 西荻窪","王賢 青砥","ガオウ 川崎","一创Yuki.Seyama","吕国栋","贺佳丽","邓英","关 海劼 -涩谷","小shi","…","一创余小佳","張世海","杨琦_南行徳","吴昊天","张雪东 北赤羽","张贻人","董宇昌 大島","龚志贵_大島","风","官开彬","王文彦","施凯文 大岛","ねいえいしん","毛平 名古屋","周雷 柏","夏安寅_玉川学園前","步步生花","范忠閣","ＸＹ","常 鑫 ー 蕨","黄 栋—王子","車暁宇@北赤羽","辛灿 大阪","张爽","陳雨_大島","李昊遠 竹ノ塚","徐健_大森","横川(仕事用)㍿一創","陳凱慧_西大島","王荣_西大島","小老虎PH"]
+
+var addrlist = namelist.reduce(function(a,v){
+	var parts = v.split(/[-\ _]/);
+	if(parts.length >1){
+		var addr = parts[parts.length-1]
+		parts.pop()
+		var name = parts.join("")
+		a[name] = addr;
+	} 
+	return a;
+},{});
+
+// console.log(JSON.stringify(addrlist))
+
+
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: {lat: -34.397, lng: 150.644}
+  });
+  geocoder = new google.maps.Geocoder();
+
+  var keyList = Object.keys(addrlist);
+
+  var unit = 1000;
+  var cur = 0;
+  var iter = setInterval(function(){
+  	
+  	geocodeAddress(geocoder,addrlist[keyList[cur]], map,cur);
+  	cur ++;
+  	if(unit == keyList.length ){
+  		clearInterval(iter)
+  	}
+  },unit);
+
+
+
+  // for(var key in addrlist){
+  // 	geocodeAddress(geocoder,addrlist[key], map);
+  // }
+  
+
+  // document.getElementById('submit').addEventListener('click', function() {
+  //   geocodeAddress(geocoder, map);
+  // });
+
+	// var marker = new google.maps.Marker({
+	//     position: {lat: 35.692916, lng:139.849834},
+	//     map: map,
+	//     title: 'I am here !'
+	//   });
+
+}
+
+
+function geocodeAddress(geocoder,addr, resultsMap,cur) {
+  
+  geocoder.geocode({'address': addr}, function(results, status) {
+    if (status === 'OK') {
+    	if(cur == 0){
+    		resultsMap.setCenter(results[0].geometry.location);
+    	}
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+    } else {
+      // alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+
+
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+	
+<style type="text/css">
+	
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+</style>
+
+</head>
+<body>
+<div id="floating-panel">
+  <input id="address" type="textbox" value="Sydney, NSW">
+  <input id="submit" type="button" value="Geocode">
+</div>
+<div id="map"></div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Vwk4_Oy11sYAaO8Vme-CsEjljoVq_wI&callback=initMap"></script>
+</body>
+</html>
