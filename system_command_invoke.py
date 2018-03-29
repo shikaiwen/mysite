@@ -9,6 +9,8 @@ from time import sleep
 #  python command line :  http://takuya-1st.hatenablog.jp/entry/2016/04/11/044313 
 # pathlib.Path("yourPathGoesHere").suffix
 
+
+
 def func(cmd):
     proc = subprocess.Popen(cmd , shell=True)
 
