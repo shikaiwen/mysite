@@ -9,19 +9,19 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # 微信小程序用户管理
 
-class wechatprouser(models.Model):
-    
-    openid = models.CharField(max_length=30)
-    city = models.CharField(max_length=30)
-    country = models.CharField(max_length=30)
-    gender = models.CharField(max_length=30)
-    language = models.CharField(max_length=30)
-    nickName = models.CharField(max_length=30)
-    province  = models.CharField(max_length=30)
-    
-    rawData = models.CharField(max_length=10000)
-    
-    pass
+# class wechatprouser(models.Model):
+#     
+#     openid = models.CharField(max_length=30)
+#     city = models.CharField(max_length=30)
+#     country = models.CharField(max_length=30)
+#     gender = models.CharField(max_length=30)
+#     language = models.CharField(max_length=30)
+#     nickName = models.CharField(max_length=30)
+#     province  = models.CharField(max_length=30)
+#     
+#     rawData = models.CharField(max_length=10000)
+#     
+#     pass
 
 
 

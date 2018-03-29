@@ -32,7 +32,7 @@ SECRET_KEY = 'yo%_k!%&6&zrz1#k_kd@am17bn_98y0$^n@9u9d12wvpy%fwv8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ "35.200.87.246","localhost","127.0.0.1"]
+ALLOWED_HOSTS = [ "35.200.81.59","localhost","127.0.0.1"]
 
 
 # Application definition
@@ -220,12 +220,17 @@ INSTALLED_APPS = (
 DATABASES = {
     'default': {
         'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
-        'PORT': '',
-        'USER': ''
+#         'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': '35.200.81.59',
+        'NAME': 'mysite',
+        'PORT': '3306',
+        'USER': 'devuser1',
+        'PASSWORD': 'devuser1',
+        'OPTIONS': {
+            'autocommit': True,
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
