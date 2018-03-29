@@ -1,6 +1,5 @@
 from django.shortcuts import render
 
-
 # Create your views here.
 from django.http import HttpResponse, Http404
 from django.template import loader
@@ -25,10 +24,18 @@ from firstsite.AddForm import AddForm
 
 
 # グーグルのウェーブサイト翻訳　https://support.google.com/translate/answer/2534601?hl=en
+
+# add textfilter : https://medium.com/@hakibenita/how-to-add-a-text-filter-to-django-admin-5d1db93772d8
+# filter: https://github.com/modlinltd/django-advanced-filters
+# http://morozov.ca/why-you-should-use-the-django-admin-9-tips.html
+
+# https://docs.djangoproject.com/en/2.0/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter
+# https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
+
 def index(request):
     template = loader.get_template("firstsite/index.html")
     currlinkitem = HeaderLink.objects.filter(name="home").get()
-    postlist = list(Post.objects.all().filter(appcode="1").filter(show="1").order_by("-created_on"))
+    postlist = list(Post.objects.all().filter(appcode="1",show="1").order_by("-created_on"))
     context = {
         "currlinkitem":currlinkitem,
         "postlist":postlist
