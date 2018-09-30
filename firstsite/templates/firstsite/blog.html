@@ -1,6 +1,8 @@
 {% extends "firstsite/index.html"%}
 {% load static %}
-
+{% block title%}
+  <title> {{currlinkitem.titletext}}</title>
+{% endblock %}
 
 {% block cntheader%}
     <header class="intro-header" style="background-image: url({% static 'img/about-bg.jpg'%})">

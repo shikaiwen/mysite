@@ -1,6 +1,10 @@
 {% extends "firstsite/index.html"%}
 {% load static %}
 
+{% block title %}
+	<title>{{post.title}}</title>
+{% endblock %}
+
 {% block cntheader%}
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
