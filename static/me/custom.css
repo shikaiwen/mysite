@@ -1,0 +1,29 @@
+.me-title-img{
+	width:190px;
+	height:200px;
+	border-radius: 50%;
+}
+
+
+/* mycareer module  */
+.mycareer_maincontiner iframe{
+	width: 281px;
+    height: 200px;
+    margin-left: 10px;
+}
+
+.mycareer_maincontiner{
+	
+}
+/* end of  mycareer module  */
+
+
+
+/* */
+.about_resume{
+}
+
+.about_resume a{
+	float:right;
+	margin-right:10px;
+}

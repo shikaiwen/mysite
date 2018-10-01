@@ -31,6 +31,7 @@ SECRET_KEY = 'yo%_k!%&6&zrz1#k_kd@am17bn_98y0$^n@9u9d12wvpy%fwv8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [ "35.200.81.59","localhost","127.0.0.1"]
 
@@ -73,7 +74,10 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
         'height': 300,
         'width': "100%",
-    },
+	'skin': 'moono',
+	'allowedContent':True
+    }
+    
 }
 
  
